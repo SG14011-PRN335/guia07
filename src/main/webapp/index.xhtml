@@ -60,13 +60,13 @@
                         <p:inputText id="id" value="#{frmCategoria.categoriaEntity.idCategoria}" title="ID" readonly="true"/>
                         
                         <p:outputLabel value="Nombres:" for="nombres" />
-                        <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="Nombres" required="true" requiredMessage="Los nombres son requeridos."/>
+                        <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="Nombres" required="true"/>
                         
                         <p:outputLabel value="Activo:" for="activo" />
                         <p:selectBooleanCheckbox id="activo" value="#{frmCategoria.categoriaEntity.activo}" />
                         
                         <p:outputLabel value="Descripcion:" for="descripcion"/>
-                        <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="Descripcion" />
+                        <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="Descripcion" required="true"/>
                         
                 </h:panelGrid>
                           
@@ -76,7 +76,7 @@
             </h:form>
         </f:view>
         <br/>
-        <p align="left" style="size: 10px">jcsantos</p>
+        <p align="left" style="size: 10px">Todos los Derechos Reservados 2017</p>
         
     </h:body>
 </html>

@@ -14,7 +14,7 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
 
 /**
  *
- * @author bryan
+ * @author juancarlos
  */
 public abstract class GenericMB<T> implements Serializable {
 

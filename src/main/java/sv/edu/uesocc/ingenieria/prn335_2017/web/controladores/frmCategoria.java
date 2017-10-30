@@ -18,7 +18,7 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
 
 /**
  *
- * @author bryan
+ * @author juancarlos
  */
 @Named(value = "frmCategoria")
 @ViewScoped
@@ -113,7 +113,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
         super.editar();
         this.botones = false;
         this.botones2 = false;
-        this.btnadd = true;
+        this.btnadd = false;
         reiniciarValores();
     }
 
@@ -122,7 +122,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
         super.eliminar();
         this.botones = false;
         this.botones2 = false;
-        this.btnadd = true;
+        this.btnadd = false;
         reiniciarValores();
     }
 
