@@ -13,13 +13,13 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <h:panelGrid columns="2" cellpadding = "10">  
-            <p:commandButton value="Nuevo"
+            <p:commandButton value="#{componente['btnNevo']}"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              disabled="false" resetValues="true"
-                             actionListener="#{cc.attrs.baking.nuevo()}"
+                             actionListener="#{cc.attrs.baking.nuevo}"
                              immediate="true"/>
-            <p:commandButton value="Cancelar" icon="ui-icon-cancel"
+            <p:commandButton value="#{componente['btnCancelar']}" icon="ui-icon-cancel"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              disabled="false" resetValues="true"

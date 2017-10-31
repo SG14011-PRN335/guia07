@@ -13,20 +13,20 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <h:panelGrid columns="2" cellpadding="10" >   
-            <p:commandButton value="Guardar" icon="ui-icon-disk"
+            <p:commandButton value="#{componente['btnGuardar']}" icon="ui-icon-disk"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              resetValues="true"
                              rendered="#{frmCategoria.botones}"
                              actionListener="#{cc.attrs.enti.crear()}"/>
 
-            <p:commandButton value="Eliminar" icon="ui-icon-trash"
+            <p:commandButton value="#{componente['btnEliminar']}" icon="ui-icon-trash"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              rendered="#{frmCategoria.botones2}"
                              actionListener="#{cc.attrs.enti.eliminar()}"/>
 
-            <p:commandButton value="Modificar" icon="ui-icon-pencil"
+            <p:commandButton value="#{componente['btnModificar']}" icon="ui-icon-pencil"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              rendered="#{frmCategoria.botones2}"

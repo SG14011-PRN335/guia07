@@ -22,7 +22,7 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
  */
 @Named(value = "frmCategoria")
 @ViewScoped
-public class frmCategoria extends GenericMB<Categoria> implements Serializable{
+public class frmCategoria extends ManagedGenericBean<Categoria> implements Serializable{
 
     public frmCategoria() {
     }

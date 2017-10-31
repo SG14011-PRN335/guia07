@@ -16,7 +16,7 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
  *
  * @author juancarlos
  */
-public abstract class GenericMB<T> implements Serializable {
+public abstract class ManagedGenericBean<T> implements Serializable {
 
     List<T> listaDatos;
 

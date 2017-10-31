@@ -9,37 +9,47 @@
         <title>Categorias</title>
     </h:head>
     <h:body>
+        <h:form id="frmTop">
+        <h:panelGrid columns="4">
+            <h:outputLabel for="lstIdiomas" value="#{componente['selecIdioma']}"/>
+            <h:selectOneMenu id="lstIdiomas" value="#{managedBeanLanguages.codigoIdioma}"
+                            valueChangeListener="#{managedBeanLanguages.cambioDeIdiomaHandler}"
+                            onchange="submit()">
+            <f:selectItems value="#{managedBeanLanguages.paises}"/>
+        </h:selectOneMenu>
+        </h:panelGrid>
+         </h:form>   
 
         <f:view>
             <h:form id="tabla">
-                <h1 align="center"><h:outputText value="Categorias"/></h1>
+                <h1 align="center"><h:outputText value="#{componente['titulo']}"/></h1>
                 <p:dataTable value="#{frmCategoria.listaDatos}" var="item" paginator="true" rows="5" rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{frmCategoria.categoriaEntity}" rowKey="#{item.idCategoria}" >
                     <p:ajax event="rowSelect" listener="#{frmCategoria.cambiarSeleccion()}" update=":formulario"/>
                     
                     <p:column sortBy="#{item.idCategoria}">
                         <f:facet name="header">
-                            <h:outputText value="IdCategoria"/>
+                            <h:outputText value="#{componente['columna1']}"/>
                         </f:facet>
                         <h:outputText value="#{item.idCategoria}"/>
                     </p:column>
                     
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText value="Nombres"/>
+                            <h:outputText value="#{componente['columna2']}"/>
                         </f:facet>
                         <h:outputText value="#{item.nombre}"/>
                     </p:column>
                     
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText value="Activo"/>
+                            <h:outputText value="#{componente['columna3']}"/>
                         </f:facet>
                         <h:outputText value="#{item.activo}"/>
                     </p:column>
                     
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText value="Descripcion"/>
+                            <h:outputText value="#{componente['Columna4']}"/>
                         </f:facet>
                         <h:outputText value="#{item.descripcion}"/>
                     </p:column>
@@ -56,17 +66,17 @@
                     
                 <h:panelGrid columns="2" rendered="#{frmCategoria.btnadd}" cellpadding="10" >
                         
-                        <p:outputLabel value="ID:" for="id" />
-                        <p:inputText id="id" value="#{frmCategoria.categoriaEntity.idCategoria}" title="ID" readonly="true"/>
+                    <p:outputLabel value="#{componente['columna1']}" for="id" />
+                        <p:inputText id="id" value="#{frmCategoria.categoriaEntity.idCategoria}" title="#{componente['columna1']}" readonly="true"/>
                         
-                        <p:outputLabel value="Nombres:" for="nombres" />
-                        <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="Nombres" required="true"/>
+                        <p:outputLabel value="#{componente['columna2']}" for="nombres" />
+                        <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="#{componente['columna2']}" required="true"/>
                         
-                        <p:outputLabel value="Activo:" for="activo" />
+                        <p:outputLabel value="#{componente['columna3']}" for="activo" />
                         <p:selectBooleanCheckbox id="activo" value="#{frmCategoria.categoriaEntity.activo}" />
                         
-                        <p:outputLabel value="Descripcion:" for="descripcion"/>
-                        <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="Descripcion" required="true"/>
+                        <p:outputLabel value="#{componente['Columna4']}" for="descripcion"/>
+                        <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="#{componente['Columna4']}" required="true"/>
                         
                 </h:panelGrid>
                           
@@ -76,7 +86,7 @@
             </h:form>
         </f:view>
         <br/>
-        <p align="left" style="size: 10px">Todos los Derechos Reservados 2017</p>
+        <p align="left" style="size: 10px">#{componente['derechos']}</p>
         
     </h:body>
 </html>
