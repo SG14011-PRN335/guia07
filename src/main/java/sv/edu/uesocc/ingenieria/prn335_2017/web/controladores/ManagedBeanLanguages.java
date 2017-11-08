@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
@@ -63,8 +64,18 @@ public class ManagedBeanLanguages implements Serializable{
         }
     }
     
-    
-    
+ 
+    public String getMensaje(final String clave){
+        try {
+            ResourceBundle propiedades=FacesContext.getCurrentInstance().getApplication().getResourceBundle(FacesContext.getCurrentInstance(), "componente");
+            if (propiedades!=null && propiedades.containsKey(clave)) {
+                return propiedades.getString(clave);
+            }
+        } catch (Exception ex) {
+                  Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        }
+        return null;
+    }
     
     
 }

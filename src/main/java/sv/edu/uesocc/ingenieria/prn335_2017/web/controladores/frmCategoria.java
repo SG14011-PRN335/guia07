@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import org.primefaces.event.SelectEvent;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.CategoriaFacadeLocal;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
@@ -109,27 +108,27 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
     }
 
     @Override
-    public void editar() {
-        super.editar();
-        this.botones = false;
-        this.botones2 = false;
-        this.btnadd = false;
-        reiniciarValores();
+    public void nuevo(){
+    categoriaEntity = new Categoria();
+    this.botones = true;
+    this.btnadd = true;
+    this.botones2=false;
     }
 
     @Override
-    public void eliminar() {
-        super.eliminar();
-        this.botones = false;
-        this.botones2 = false;
-        this.btnadd = false;
-        reiniciarValores();
+    public void cancelar() {
+        categoriaEntity = new Categoria();
+        this.botones=false;
+        this.btnadd=false;
+        this.botones2=false;    
     }
-
+    
     @Override
-    public void crear() {
-        super.crear(); 
-        reiniciarValores();
+    public void reiniciar() {
+        categoriaEntity.setActivo(false);
+        categoriaEntity.setDescripcion(null);
+        categoriaEntity.setIdCategoria(null);
+        categoriaEntity.setNombre(null);
     }
     // </editor-fold>
     
@@ -137,37 +136,12 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
     public void init(){
         llenarLista();
     }
-    
-    
-    public void onRowSelect(SelectEvent event) {
-        btnVisible = true;
-    }
-    
-    public void btnCancelar() {
-        categoriaEntity = new Categoria();
-        this.botones=false;
-        this.btnadd=false;
-        this.botones2=false;
-    }
-    
-    public void nuevo(){
-    categoriaEntity = new Categoria();
-    this.botones = true;
-    this.btnadd = true;
-    this.botones2=false;
-    }
-    
-    public void reiniciarValores(){
-        categoriaEntity.setActivo(false);
-        categoriaEntity.setDescripcion(null);
-        categoriaEntity.setIdCategoria(null);
-        categoriaEntity.setNombre(null);
-    }
-    
+
     public void cambiarSeleccion() {
         this.botones = false;
         this.btnadd = true;
         this.botones2=true;
 
     }
+
 }

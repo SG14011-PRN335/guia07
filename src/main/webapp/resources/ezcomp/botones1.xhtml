@@ -7,7 +7,7 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-        <cc:attribute name="baking" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.frmCategoria" required="true"/>
+        <cc:attribute name="baking" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.ManagedGenericBean" required="true"/>
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
@@ -23,7 +23,7 @@
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              disabled="false" resetValues="true"
-                             actionListener="#{cc.attrs.baking.btnCancelar()}"
+                             actionListener="#{cc.attrs.baking.cancelar()}"
                              immediate="true"/>
         </h:panelGrid>
     </cc:implementation>
