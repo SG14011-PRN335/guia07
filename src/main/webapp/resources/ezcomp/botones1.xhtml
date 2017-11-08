@@ -7,24 +7,20 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-        <cc:attribute name="baking" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.ManagedGenericBean" required="true"/>
+        <cc:attribute name="listener" required="true" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.ManagedGenericBean"/>
+        <cc:attribute name="updates" required="true" type="java.lang.String" />
+        <cc:attribute name="entidad" required="false" type="java.lang.String" default="" />    
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <h:panelGrid columns="2" cellpadding = "10">  
-            <p:commandButton value="#{componente['btnNevo']}"
-                             validateClient="true" ajax="true"
-                             update="@form :tabla"
-                             disabled="false" resetValues="true"
-                             actionListener="#{cc.attrs.baking.nuevo}"
-                             immediate="true"/>
-            <p:commandButton value="#{componente['btnCancelar']}" icon="ui-icon-cancel"
-                             validateClient="true" ajax="true"
-                             update="@form :tabla"
-                             disabled="false" resetValues="true"
-                             actionListener="#{cc.attrs.baking.cancelar()}"
-                             immediate="true"/>
-        </h:panelGrid>
+        
+        <p:commandButton value="#{componente['btnNevo']} #{cc.attrs.entidad}" 
+                         actionListener="#{cc.attrs.listener.nuevo()}" 
+                         update="#{cc.attrs.updates}"/>
+        
+        <p:commandButton value="#{componente['btnCancelar']} #{cc.attrs.entidad}" 
+                         actionListener="#{cc.attrs.listener.cancelar()}" 
+                         update="#{cc.attrs.updates}"/>
     </cc:implementation>
 </html>

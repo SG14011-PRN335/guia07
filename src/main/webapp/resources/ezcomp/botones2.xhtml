@@ -7,30 +7,29 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-        <cc:attribute name="enti" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.ManagedGenericBean" required="true"/>
+        <cc:attribute name="listener" required="true" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.ManagedGenericBean"/>
+        <cc:attribute name="updates" required="true" type="java.lang.String" />
+        <cc:attribute name="renderBtns" required="true" type="java.lang.Boolean"/>
+        <cc:attribute name="entidad" rendered="false" type="java.lang.String" default="" />    
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <h:panelGrid columns="2" cellpadding="10" >   
-            <p:commandButton value="#{componente['btnGuardar']}" icon="ui-icon-disk"
-                             validateClient="true" ajax="true"
-                             update="@form :tabla"
-                             resetValues="true"
-                             rendered="#{frmCategoria.botones}"
-                             actionListener="#{cc.attrs.enti.crear()}"/>
-
-            <p:commandButton value="#{componente['btnEliminar']}" icon="ui-icon-trash"
-                             validateClient="true" ajax="true"
-                             update="@form :tabla"
-                             rendered="#{frmCategoria.botones2}"
-                             actionListener="#{cc.attrs.enti.eliminar()}"/>
-
-            <p:commandButton value="#{componente['btnModificar']}" icon="ui-icon-pencil"
-                             validateClient="true" ajax="true"
-                             update="@form :tabla"
-                             rendered="#{frmCategoria.botones2}"
-                             actionListener="#{cc.attrs.enti.editar()}"/> 
+            <p:commandButton value="#{componente['btnGuardar']} #{cc.attrs.entidad}" 
+                             actionListener="#{cc.attrs.listener.crear()}" 
+                             update="#{cc.attrs.updates}" 
+                             rendered="#{cc.attrs.renderBtns}" />
+            
+            <p:commandButton value="#{componente['btnModificar']}  #{cc.attrs.entidad}" 
+                             actionListener="#{cc.attrs.listener.editar()}" 
+                             update="#{cc.attrs.updates}" 
+                             rendered="#{!cc.attrs.renderBtns}" />
+            
+            <p:commandButton value="#{componente['btnEliminar']}  #{cc.attrs.entidad}" 
+                             actionListener="#{cc.attrs.listener.eliminar()}" 
+                             update="#{cc.attrs.updates}" 
+                             rendered="#{!cc.attrs.renderBtns}" />
         </h:panelGrid>
     </cc:implementation>
 </html>

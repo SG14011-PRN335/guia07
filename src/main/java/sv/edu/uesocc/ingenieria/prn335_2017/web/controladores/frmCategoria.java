@@ -29,26 +29,16 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
     @EJB
     CategoriaFacadeLocal facade;
     Categoria categoriaEntity;
-    boolean btnVisible=false;
     
-    boolean btnadd = false;
-    boolean botones = false;
-    boolean botones2 = false;
-    
+    boolean mostrar = false, crudBtns=true;
 
+    
+    
     // <editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public CategoriaFacadeLocal getFacade() {
         return facade;
     }
 
-    public boolean isBtnVisible() {
-        return btnVisible;
-    }
-
-    public void setBtnVisible(boolean btnVisible) {
-        this.btnVisible = btnVisible;
-    }
-    
     public void setFacade(CategoriaFacadeLocal facade) {
         this.facade = facade;
     }
@@ -69,30 +59,21 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
         this.listaDatos = listaDatos;
     }
     
-    public boolean isBtnadd() {
-        return btnadd;
+    public boolean isMostrar() {
+        return mostrar;
     }
 
-    public void setBtnadd(boolean btnadd) {
-        this.btnadd = btnadd;
+    public void setMostrar(boolean mostrar) {
+        this.mostrar = mostrar;
     }
 
-    public boolean isBotones() {
-        return botones;
+    public boolean isCrudBtns() {
+        return crudBtns;
     }
 
-    public void setBotones(boolean botones) {
-        this.botones = botones;
+    public void setCrudBtns(boolean crudBtns) {
+        this.crudBtns = crudBtns;
     }
-    
-    public boolean isBotones2() {
-        return botones2;
-    }
-
-    public void setBotones2(boolean botones2) {
-        this.botones2 = botones2;
-    }
-    
 
     // </editor-fold>
     
@@ -109,18 +90,18 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
 
     @Override
     public void nuevo(){
-    categoriaEntity = new Categoria();
-    this.botones = true;
-    this.btnadd = true;
-    this.botones2=false;
+        categoriaEntity = new Categoria();
+        setMostrar(true);
+        setCrudBtns(true);
+    
     }
 
     @Override
     public void cancelar() {
         categoriaEntity = new Categoria();
-        this.botones=false;
-        this.btnadd=false;
-        this.botones2=false;    
+        setMostrar(false);
+        setCrudBtns(true);
+            
     }
     
     @Override
@@ -138,9 +119,8 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
     }
 
     public void cambiarSeleccion() {
-        this.botones = false;
-        this.btnadd = true;
-        this.botones2=true;
+        setCrudBtns(false);
+        setMostrar(true);
 
     }
 
