@@ -9,19 +9,18 @@
 
     <h:form id="formulario" >
         <p:panel id="manejoDatos" rendered="#{frmCategoria.mostrar}">
-            <p:growl id="messages" showDetail="true" sticky="true" />
                 <h:panelGrid columns="2" >
-                    <p:outputLabel value="#{componente['columna1']}" for="id" />
-                    <p:inputText id="id" value="#{frmCategoria.categoriaEntity.idCategoria}" title="#{componente['columna1']}" readonly="true"/>
+                    <p:outputLabel value="#{componente['id.columna']}" for="id" />
+                    <p:inputText id="id" value="#{frmCategoria.categoriaEntity.idCategoria}" title="#{componente['id.columna']}" readonly="true"/>
 
-                    <p:outputLabel value="#{componente['columna2']}" for="nombres" />
-                    <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="#{componente['columna2']}" required="true"/>
+                    <p:outputLabel value="#{componente['nombre.columna']}" for="nombres" />
+                    <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="#{componente['nombre.columna']}" required="true" requiredMessage="#{componente['nombre.requerido']}" />
 
-                    <p:outputLabel value="#{componente['columna3']}" for="activo" />
+                    <p:outputLabel value="#{componente['activo.columna']}" for="activo" />
                     <p:selectBooleanCheckbox id="activo" value="#{frmCategoria.categoriaEntity.activo}" />
 
-                    <p:outputLabel value="#{componente['Columna4']}" for="descripcion"/>
-                    <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="#{componente['Columna4']}" required="true"/>
+                    <p:outputLabel value="#{componente['desc.columna']}" for="descripcion"/>
+                    <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="#{componente['desc.columna']}" required="true" requiredMessage="#{componente['desc.requerida']}"/>
                 </h:panelGrid>
                 
                 <!-- BOTONES CRUD -->

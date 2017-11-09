@@ -8,7 +8,7 @@
                 xmlns:ez="http://xmlns.jcp.org/jsf/composite/ezcomp">
     
     <h:form id="tabla">
-        
+                <p:growl id="messages" showDetail="true" sticky="true" />
                 <h1 align="center"><h:outputText value="#{componente['titulo']}"/></h1>
                 
                 <p:dataTable id="tabla"
@@ -26,28 +26,28 @@
                     
                     <p:column sortBy="#{item.idCategoria}" filterBy="#{item.idCategoria}">
                         <f:facet name="header">
-                        <h:outputText value="#{componente['columna1']}"/>
+                            <h:outputText value="#{componente['id.columna']}"/>
                         </f:facet>
                         <h:outputText value="#{item.idCategoria}"/>
                     </p:column>
                     
                     <p:column sortBy="#{item.nombre}" filterBy="#{item.nombre}">
                         <f:facet name="header">
-                        <h:outputText value="#{componente['columna2']}"/>
+                            <h:outputText value="#{componente['nombre.columna']}"/>
                         </f:facet>
                         <h:outputText value="#{item.nombre}"/>
                     </p:column>
                     
                     <p:column sortBy="#{item.activo}" filterBy="#{item.activo}">
                         <f:facet name="header">
-                        <h:outputText value="#{componente['columna3']}"/>
+                            <h:outputText value="#{componente['activo.columna']}"/>
                         </f:facet>
                         <h:outputText value="#{item.activo}"/>
                     </p:column>
                     
                     <p:column sortBy="#{item.descripcion}" filterBy="#{item.descripcion}">
                         <f:facet name="header">
-                        <h:outputText value="#{componente['Columna4']}"/>
+                            <h:outputText value="#{componente['desc.columna']}"/>
                         </f:facet>
                         <h:outputText value="#{item.descripcion}"/>
                     </p:column>

@@ -110,6 +110,8 @@ public class frmCategoria extends ManagedGenericBean<Categoria> implements Seria
         categoriaEntity.setDescripcion(null);
         categoriaEntity.setIdCategoria(null);
         categoriaEntity.setNombre(null);
+        setMostrar(false);
+        setCrudBtns(true);
     }
     // </editor-fold>
     
